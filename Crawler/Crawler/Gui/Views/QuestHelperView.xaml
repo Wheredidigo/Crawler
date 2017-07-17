@@ -5,11 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:settings="clr-namespace:Crawler.Settings"
              mc:Ignorable="d">
+    
     <UserControl.Resources>
         <ResourceDictionary>
             <settings:CrawlerSettings x:Key="CrawlerSettings" d:IsDataSource="True"/>
         </ResourceDictionary>
     </UserControl.Resources>
+    
     <Grid>
         <StackPanel>
             <CheckBox Content="Skip Cutscenes" Foreground="Red" IsChecked="{Binding Instance.SkipCutscenes, Mode=TwoWay, Source={StaticResource CrawlerSettings}, UpdateSourceTrigger=PropertyChanged}"/>
@@ -17,4 +19,5 @@
             <CheckBox Content="Accept Quests" Foreground="Red" IsChecked="{Binding Instance.AcceptQuests, Mode=TwoWay, Source={StaticResource CrawlerSettings}, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
     </Grid>
+    
 </UserControl>

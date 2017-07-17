@@ -9,6 +9,7 @@
     x:Class="Crawler.Gui.Views.AuthenticationView"
     mc:Ignorable="d"
     Width="350">
+    
     <UserControl.Resources>
         <ResourceDictionary>
             <converters:StringToVisibilityConverter x:Key="StringToVisibilityConverter"/>
@@ -18,9 +19,11 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
+    
     <UserControl.DataContext>
-        <viewModels:AuthenticationViewModel/>
+        <Binding Source="{x:Static viewModels:AuthenticationViewModel.Instance}" />
     </UserControl.DataContext>
+    
     <Grid>
         <StackPanel HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal">

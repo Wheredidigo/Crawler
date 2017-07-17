@@ -7,6 +7,7 @@
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:forms="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
              mc:Ignorable="d">
+    
     <UserControl.Resources>
         <ResourceDictionary>
             <ObjectDataProvider x:Key="KeysEnum" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
@@ -22,6 +23,7 @@
             <settings:CrawlerSettings x:Key="CrawlerSettings" d:IsDataSource="True"/>
         </ResourceDictionary>
     </UserControl.Resources>
+    
     <Grid>
         <StackPanel>
             <StackPanel Orientation="Horizontal">
