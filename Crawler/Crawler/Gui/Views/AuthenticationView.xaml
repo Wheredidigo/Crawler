@@ -1,0 +1,38 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:converters="clr-namespace:Crawler.Gui.Converters"
+    xmlns:viewModels="clr-namespace:Crawler.Gui.ViewModels"
+    xmlns:settings="clr-namespace:Crawler.Settings"
+    x:Class="Crawler.Gui.Views.AuthenticationView"
+    mc:Ignorable="d"
+    Width="350">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <converters:StringToVisibilityConverter x:Key="StringToVisibilityConverter"/>
+            <settings:CrawlerSettings x:Key="CrawlerSettings" d:IsDataSource="True"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Resources/CrawlerButtonTransparent.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <UserControl.DataContext>
+        <viewModels:AuthenticationViewModel/>
+    </UserControl.DataContext>
+    <Grid>
+        <StackPanel HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Email:" Width="80" Foreground="Red" />
+                <TextBox Width="250" Text="{Binding Instance.Email, Mode=TwoWay, Source={StaticResource CrawlerSettings}, UpdateSourceTrigger=PropertyChanged}" Foreground="Red" Background="Transparent"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0" >
+                <Label Content="Product Key:" Width="80"  Foreground="Red"/>
+                <TextBox Width="250" Text="{Binding Instance.ProductKey, Mode=TwoWay, Source={StaticResource CrawlerSettings}, UpdateSourceTrigger=LostFocus}" Foreground="Red" Background="Transparent"/>
+            </StackPanel>
+            <Button Content="Test Key" Margin="0,10,0,0" Style="{DynamicResource CrawlerButtonTransparent}" HorizontalAlignment="Center" Width="100" Height="35" Command="{Binding TestKeyCommand}" Background="Transparent" Foreground="Red" BorderBrush="Transparent" BorderThickness="0"/>
+            <TextBlock Text="{Binding Message, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding Message, Converter={StaticResource StringToVisibilityConverter}}" Foreground="Red" />
+        </StackPanel>
+    </Grid>
+</UserControl>
