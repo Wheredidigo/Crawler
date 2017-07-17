@@ -3,10 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:settings="clr-namespace:Crawler.Settings"
+             xmlns:viewModels="clr-namespace:Crawler.Gui.ViewModels"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:forms="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
              mc:Ignorable="d">
+    
+    <UserControl.DataContext>
+        <Binding Source="{x:Static viewModels:SettingsViewModel.Instance}" />
+    </UserControl.DataContext>
     
     <UserControl.Resources>
         <ResourceDictionary>
@@ -20,7 +24,6 @@
                     <x:Type TypeName="ModifierKeys"></x:Type>
                 </ObjectDataProvider.MethodParameters>
             </ObjectDataProvider>
-            <settings:CrawlerSettings x:Key="CrawlerSettings" d:IsDataSource="True"/>
         </ResourceDictionary>
     </UserControl.Resources>
     
@@ -28,11 +31,11 @@
         <StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label Content="Pause HotKey Key:" Foreground="Red" Margin="0,0,55,0"/>
-                <ComboBox HorizontalContentAlignment="Right" VerticalContentAlignment="Center" MinWidth="150" ItemsSource="{Binding Source={StaticResource KeysEnum}}" SelectedValue="{Binding Instance.TogglePauseKey, Mode=TwoWay, Source={StaticResource CrawlerSettings}}" Foreground="Red" Background="Transparent"/>
+                <ComboBox HorizontalContentAlignment="Right" VerticalContentAlignment="Center" MinWidth="150" ItemsSource="{Binding Source={StaticResource KeysEnum}}" SelectedValue="{Binding CrawlerSettings.TogglePauseKey, Mode=TwoWay}" Foreground="Red" Background="Transparent"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                 <Label Content="Pause HotKey ModifierKey:" Foreground="Red" Margin="0,0,10,0"/>
-                <ComboBox HorizontalContentAlignment="Right" VerticalContentAlignment="Center" MinWidth="150" ItemsSource="{Binding Source={StaticResource ModifierKeysEnum}}" SelectedValue="{Binding Instance.TogglePauseModifierKey, Mode=TwoWay, Source={StaticResource CrawlerSettings}}" Foreground="Red" Background="Transparent"/>
+                <ComboBox HorizontalContentAlignment="Right" VerticalContentAlignment="Center" MinWidth="150" ItemsSource="{Binding Source={StaticResource ModifierKeysEnum}}" SelectedValue="{Binding CrawlerSettings.TogglePauseModifierKey, Mode=TwoWay}" Foreground="Red" Background="Transparent"/>
             </StackPanel>
         </StackPanel>
     </Grid>

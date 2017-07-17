@@ -11,7 +11,9 @@ namespace Crawler.Gui.ViewModels
     {
         private static AuthenticationViewModel _instance;
         public static AuthenticationViewModel Instance => _instance ?? (_instance = new AuthenticationViewModel());
-        
+     
+        public static CrawlerSettings CrawlerSettings => CrawlerSettings.Instance;
+
         private ICommand _testKeyCommand;
         public ICommand TestKeyCommand => _testKeyCommand ?? (_testKeyCommand = new DelegateCommand(TestKey, () =>
                                 !string.IsNullOrWhiteSpace(CrawlerSettings.Instance.Email) &&
