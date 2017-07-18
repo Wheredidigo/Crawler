@@ -72,6 +72,21 @@ namespace Crawler.Settings
                 Save();
             }
         }
+
+        private double _overlayBackgroundOpacity;
+
+        [Setting]
+        [DefaultValue(0.8)]
+        public double OverlayBackgroundOpacity
+        {
+            get { return _overlayBackgroundOpacity; }
+            set
+            {
+                _overlayBackgroundOpacity = value;
+                Save();
+            }
+        }
+
         private bool _useAutoTargeting;
 
         [Setting]

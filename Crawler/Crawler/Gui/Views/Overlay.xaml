@@ -15,20 +15,28 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <StackPanel Orientation="Horizontal">
-        <Rectangle Width="75" Height="75" Fill="{StaticResource CrawlerIcon}"/>
-        <TextBlock FontSize="50" Foreground="Red">
-            <TextBlock.Style>
-                <Style TargetType="{x:Type TextBlock}">
-                    <Setter Property="Text" Value="Running" />
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding CrawlerSettings.IsPaused}" Value="Paused">
-                            <Setter Property="Text" Value="ON" />
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </TextBlock.Style>
-        </TextBlock>
-    </StackPanel>
-    
+    <Grid>
+
+        <Border Background="#FF0A0A0A" CornerRadius="5" Opacity="{Binding CrawlerSettings.OverlayBackgroundOpacity}" /> 
+
+        <StackPanel Orientation="Horizontal" Margin="4">
+            
+            <Rectangle Width="75" Height="75" Fill="{StaticResource CrawlerIcon}"/>
+            
+            <TextBlock FontSize="50" Foreground="Red">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Text" Value="Running" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding CrawlerSettings.IsPaused}" Value="Paused">
+                                <Setter Property="Text" Value="ON" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+            
+        </StackPanel>
+    </Grid>
+
 </UserControl>
