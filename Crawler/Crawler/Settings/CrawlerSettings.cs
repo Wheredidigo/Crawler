@@ -50,6 +50,19 @@ namespace Crawler.Settings
 
         [Setting]
         [DefaultValue(true)]
+        public bool UseOverlay
+        {
+            get { return _useOverlay; }
+            set
+            {
+                _useOverlay = value;
+                Save();
+            }
+        }
+        private bool _useOverlay;
+
+        [Setting]
+        [DefaultValue(true)]
         public bool UseAutoTargeting
         {
             get { return _useAutoTargeting; }
