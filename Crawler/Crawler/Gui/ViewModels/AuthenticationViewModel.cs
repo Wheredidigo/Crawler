@@ -15,9 +15,7 @@ namespace Crawler.Gui.ViewModels
         public static CrawlerSettings CrawlerSettings => CrawlerSettings.Instance;
 
         private ICommand _testKeyCommand;
-        public ICommand TestKeyCommand => _testKeyCommand ?? (_testKeyCommand = new DelegateCommand(TestKey, () =>
-                                !string.IsNullOrWhiteSpace(CrawlerSettings.Instance.Email) &&
-                                !string.IsNullOrWhiteSpace(CrawlerSettings.Instance.ProductKey)));
+        public ICommand TestKeyCommand => _testKeyCommand ?? (_testKeyCommand = new DelegateCommand(TestKey, () => !string.IsNullOrWhiteSpace(CrawlerSettings.Instance.ProductKey)));
 
         public string Message { get; set; }
         public bool IsMessageVisible => !string.IsNullOrWhiteSpace(Message);

@@ -23,19 +23,6 @@ namespace Crawler.Settings
         private static CrawlerSettings _instance;
 
         [Setting]
-        [DefaultValue("")]
-        public string Email
-        {
-            get { return _email; }
-            set
-            {
-                _email = value;
-                Save();
-            }
-        }
-        private string _email;
-
-        [Setting]
         public string ProductKey
         {
             get { return _productKey; }
