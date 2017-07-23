@@ -11,7 +11,7 @@
     <Border CornerRadius="5" Background="#FF080808" >
        
         <Canvas>
-
+            
             <Rectangle Canvas.Top="10" Canvas.Left="10" Height="100" Width="100" >
                 <Rectangle.Fill>
                     <DrawingBrush Stretch="Uniform">
