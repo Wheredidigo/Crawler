@@ -28,8 +28,8 @@
                     <Style TargetType="{x:Type TextBlock}">
                         <Setter Property="Text" Value="Running" />
                         <Style.Triggers>
-                            <DataTrigger Binding="{Binding CrawlerSettings.IsPaused}" Value="Paused">
-                                <Setter Property="Text" Value="ON" />
+                            <DataTrigger Binding="{Binding CrawlerSettings.IsPaused, UpdateSourceTrigger=PropertyChanged}" Value="true">
+                                <Setter Property="Text" Value="Paused" />
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>

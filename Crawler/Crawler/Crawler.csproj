@@ -70,6 +70,7 @@
     <Compile Include="Gui\Commands\IAsyncCommandT.cs" />
     <Compile Include="Gui\Commands\IRaiseCanExecuteChanged.cs" />
     <Compile Include="Gui\Converters\StringToVisibilityConverter.cs" />
+    <Compile Include="Gui\Overlays\CrawlerOverlay.cs" />
     <Compile Include="Gui\ViewModels\AuthenticationViewModel.cs" />
     <Compile Include="Gui\ViewModels\SettingsViewModel.cs" />
     <Compile Include="Gui\Views\AuthenticationView.xaml.cs">

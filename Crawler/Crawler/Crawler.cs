@@ -1,4 +1,5 @@
 ﻿using Crawler.AuthCore;
+using Crawler.Gui.Overlays;
 using Crawler.Gui.Views;
 using Crawler.Logic;
 using Crawler.Settings;
@@ -47,11 +48,13 @@ namespace Crawler
             Navigator.PlayerMover = new NullMover();
             Navigator.NavigationProvider = new NullProvider();
             EventHooks.RegisterHotKeys(CrawlerSettings.Instance.GetHotKeys());
+            if(CrawlerSettings.Instance.UseOverlay) CrawlerOverlay.Start();
             Logger.Log("Starting Crawler");
         }
         public void Stop()
         {
             EventHooks.UnRegisterHotKeys(CrawlerSettings.Instance.GetHotKeys());
+            CrawlerOverlay.Stop();
             Logger.Log("Stopping Crawler");
         }
         public void OnButtonPress()

@@ -59,7 +59,15 @@ namespace Crawler.Settings
                 Save();
             }
         }
-        private bool _useOverlay;
+        private bool _useOverlay = true;
+
+        [Setting]
+        [DefaultValue(60)]
+        public double OverlayPosX { get; set; }
+
+        [Setting]
+        [DefaultValue(60)]
+        public double OverlayPosY { get; set; }
 
         [Setting]
         [DefaultValue(true)]
