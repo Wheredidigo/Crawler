@@ -69,6 +69,20 @@ namespace Crawler.Settings
         [DefaultValue(60)]
         public double OverlayPosY { get; set; }
 
+        private double _overlayWidth;
+
+        [Setting]
+        [DefaultValue(200)]
+        public double OverlayWidth
+        {
+            get { return _overlayWidth; }
+            set
+            {
+                _overlayWidth = value;
+                Save();
+            }
+        }
+
         [Setting]
         [DefaultValue(true)]
         public bool UseAutoTargeting

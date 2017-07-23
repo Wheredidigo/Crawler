@@ -15,28 +15,30 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid>
+    <Viewbox Stretch="Uniform" Width="{Binding CrawlerSettings.OverlayWidth}">
+        <Grid>
 
-        <Border Background="#FF0A0A0A" CornerRadius="5" Opacity="{Binding CrawlerSettings.OverlayBackgroundOpacity}" /> 
+            <Border Background="#FF0A0A0A" CornerRadius="5" Opacity="{Binding CrawlerSettings.OverlayBackgroundOpacity}" />
 
-        <StackPanel Orientation="Horizontal" Margin="4">
-            
-            <Rectangle Width="75" Height="75" Fill="{StaticResource CrawlerIcon}"/>
-            
-            <TextBlock FontSize="50" Foreground="Red">
-                <TextBlock.Style>
-                    <Style TargetType="{x:Type TextBlock}">
-                        <Setter Property="Text" Value="Running" />
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding CrawlerSettings.IsPaused, UpdateSourceTrigger=PropertyChanged}" Value="true">
-                                <Setter Property="Text" Value="Paused" />
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </TextBlock.Style>
-            </TextBlock>
-            
-        </StackPanel>
-    </Grid>
+            <StackPanel Orientation="Horizontal" Margin="4">
+
+                <Rectangle Width="75" Height="75" Fill="{StaticResource CrawlerIcon}"/>
+
+                <TextBlock FontSize="50" Foreground="Red">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Text" Value="Running" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding CrawlerSettings.IsPaused, UpdateSourceTrigger=PropertyChanged}" Value="true">
+                                    <Setter Property="Text" Value="Paused" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+            </StackPanel>
+        </Grid>
+    </Viewbox>
 
 </UserControl>
