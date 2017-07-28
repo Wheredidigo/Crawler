@@ -237,7 +237,7 @@ namespace CrawlerLoader
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://magitek.io");
+                client.BaseAddress = new Uri("https://auth.magitek.io");
 
                 var json = JsonConvert.SerializeObject(message);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
@@ -245,7 +245,7 @@ namespace CrawlerLoader
                 HttpResponseMessage response;
                 try
                 {
-                    response = await client.PostAsync("/api/products/version", content);
+                    response = await client.PostAsync("/products/version", content);
                 }
                 catch (Exception e)
                 {
