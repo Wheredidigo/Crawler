@@ -16,7 +16,7 @@ namespace Crawler.AuthCore
 {
     public class Authentication
     {
-        private const string BaseAddress = "https://magitek.io";
+        private const string BaseAddress = "https://auth.magitek.io";
         private static readonly object Locker = new object(), DelayLocker = new object();
         private static volatile bool _started, _exit, _forceRefresh;
         private static readonly Stopwatch DelayWatch = new Stopwatch();
@@ -140,7 +140,7 @@ namespace Crawler.AuthCore
 
             // create a new list of sessions and then call logout to remove the session
             var sessions = new List<ClientSession> { session };
-            await LogoutSessions(sessions, "/api/keys/logout");
+            await LogoutSessions(sessions, "/keys/logout");
         }
 
         public static bool IsAuthenticated(int product)
@@ -166,7 +166,7 @@ namespace Crawler.AuthCore
 
                 // Create a new list from the current sessions; if none exist, create a new list of client sessions
                 var refreshed = sessions.Count != 0
-                    ? await JsonRefreshSessions(sessions, "/api/keys/refresh")
+                    ? await JsonRefreshSessions(sessions, "/keys/refresh")
                     : new List<ClientSession>();
 
                 // api/keys/refresh returns an array of ClientSession objects .... example
@@ -216,7 +216,7 @@ namespace Crawler.AuthCore
             }
 
             var active = ProductSessions.Values.Where(v => v.Active).ToList();
-            await LogoutSessions(active, "/api/keys/logout");
+            await LogoutSessions(active, "/keys/logout");
         }
 
         private static void Wait(long timeMs)
