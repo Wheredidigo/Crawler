@@ -26,6 +26,12 @@ namespace Crawler.Logic
         {
             if (Core.Me.InCombat) return true;
 
+            if (CrawlerSettings.Instance.TurnOffAutoFacing && GameSettingsManager.FaceTargetOnAction)
+            {
+                GameSettingsManager.FaceTargetOnAction = false;
+                return true;
+            }
+
             if (CrawlerSettings.Instance.SkipDialog && Talk.DialogOpen)
             {
                 Talk.Next();

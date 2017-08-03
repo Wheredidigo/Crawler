@@ -85,6 +85,20 @@ namespace Crawler.Settings
 
         [Setting]
         [DefaultValue(true)]
+        public bool TurnOffAutoFacing
+        {
+            get { return _turnOffAutoFacing; }
+            set
+            {
+                _turnOffAutoFacing = value;
+                Save();
+            }
+        }
+
+        private bool _turnOffAutoFacing;
+
+        [Setting]
+        [DefaultValue(true)]
         public bool UseAutoTargeting
         {
             get { return _useAutoTargeting; }
@@ -94,8 +108,8 @@ namespace Crawler.Settings
                 Save();
             }
         }
+        private bool _useAutoTargeting;
 
-        private double _overlayBackgroundOpacity;
 
         [Setting]
         [DefaultValue(0.8)]
@@ -108,8 +122,8 @@ namespace Crawler.Settings
                 Save();
             }
         }
+        private double _overlayBackgroundOpacity;
 
-        private bool _useAutoTargeting;
 
         [Setting]
         [DefaultValue(true)]
