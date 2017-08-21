@@ -29,7 +29,10 @@ namespace Crawler.Utilities
 
             foreach (var hotKey in hotKeys.Where(hotKey => registeredHotkeys.Contains(hotKey.Name)))
             {
-                HotkeyManager.Unregister(hotKey.Name);
+                while (HotkeyManager.RegisteredHotkeys.Select(x => x.Name).Contains(hotKey.Name))
+                {
+                    HotkeyManager.Unregister(hotKey.Name);
+                }
             }
         }
 
@@ -37,10 +40,7 @@ namespace Crawler.Utilities
         {
             Logger.Log($@"{methodName} was called. Updating {hotKey.Name} HotKey now!");
 
-            //Get a list of all the currently registeredHotkeys to check against.
-            var registeredHotkeys = new HashSet<string>(HotkeyManager.RegisteredHotkeys.Select(x => x.Name));
-
-            if (registeredHotkeys.Contains(hotKey.Name))
+            while(HotkeyManager.RegisteredHotkeys.Select(x => x.Name).Contains(hotKey.Name))
             {
                 HotkeyManager.Unregister(hotKey.Name);
             }
