@@ -2,7 +2,6 @@
 using Buddy.Coroutines;
 using Crawler.Settings;
 using ff14bot;
-using ff14bot.Helpers;
 using ff14bot.Managers;
 using ff14bot.RemoteAgents;
 using ff14bot.RemoteWindows;
@@ -25,9 +24,12 @@ namespace Crawler.Logic
 
         private static async Task<bool> Run()
         {
-            GameSettingsManager.FaceTargetOnAction = CrawlerSettings.Instance.UseAutoFacing;
+            if (GameSettingsManager.FaceTargetOnAction != CrawlerSettings.Instance.UseAutoFacing)
+            {
+                GameSettingsManager.FaceTargetOnAction = CrawlerSettings.Instance.UseAutoFacing;
+            }
 
-            if (Core.Me.InCombat) return true;
+            if (Core.Me.InCombat) return false;
 
             if (CrawlerSettings.Instance.SkipDialog && Talk.DialogOpen)
             {

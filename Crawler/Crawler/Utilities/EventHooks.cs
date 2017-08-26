@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using ff14bot;
 using ff14bot.Managers;
 
 namespace Crawler.Utilities
@@ -9,15 +10,18 @@ namespace Crawler.Utilities
     {
         public static void RegisterHotKeys(IEnumerable<HotKey> hotKeys, [CallerMemberName] string methodName = null)
         {
-            Logger.Log($@"{methodName} was called. Adding HotKeys now!");
-
-            //Get a list of all the currently registeredHotkeys to check against.
-            var registeredHotkeys = new HashSet<string>(HotkeyManager.RegisteredHotkeys.Select(x => x.Name));
-
-            foreach (var hotKey in hotKeys.Where(hotKey => !registeredHotkeys.Contains(hotKey.Name)))
+            if (BotManager.Current.Name == "Crawler")
             {
-                HotkeyManager.Register(hotKey.Name, hotKey.Key, hotKey.ModifierKeyEnum, hotKey.Callback);
-            }
+                Logger.Log($@"{methodName} was called. Adding HotKeys now!");
+
+                //Get a list of all the currently registeredHotkeys to check against.
+                var registeredHotkeys = new HashSet<string>(HotkeyManager.RegisteredHotkeys.Select(x => x.Name));
+
+                foreach (var hotKey in hotKeys.Where(hotKey => !registeredHotkeys.Contains(hotKey.Name)))
+                {
+                    HotkeyManager.Register(hotKey.Name, hotKey.Key, hotKey.ModifierKeyEnum, hotKey.Callback);
+                }
+            }   
         }
 
         public static void UnRegisterHotKeys(IEnumerable<HotKey> hotKeys, [CallerMemberName] string methodName = null)
@@ -38,14 +42,17 @@ namespace Crawler.Utilities
 
         public static void UpdateHotKey(HotKey hotKey, [CallerMemberName] string methodName = null)
         {
-            Logger.Log($@"{methodName} was called. Updating {hotKey.Name} HotKey now!");
-
-            while(HotkeyManager.RegisteredHotkeys.Select(x => x.Name).Contains(hotKey.Name))
+            if (TreeRoot.IsRunning && BotManager.Current.Name == "Crawler")
             {
-                HotkeyManager.Unregister(hotKey.Name);
-            }
+                Logger.Log($@"{methodName} was called. Updating {hotKey.Name} HotKey now!");
 
-            HotkeyManager.Register(hotKey.Name, hotKey.Key, hotKey.ModifierKeyEnum, hotKey.Callback);
+                while (HotkeyManager.RegisteredHotkeys.Select(x => x.Name).Contains(hotKey.Name))
+                {
+                    HotkeyManager.Unregister(hotKey.Name);
+                }
+
+                HotkeyManager.Register(hotKey.Name, hotKey.Key, hotKey.ModifierKeyEnum, hotKey.Callback);
+            }
         }
     }
 }

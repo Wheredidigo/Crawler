@@ -84,7 +84,7 @@ namespace Crawler.Settings
         }
 
         [Setting]
-        [DefaultValue(true)]
+        [DefaultValue(false)]
         public bool UseAutoFacing
         {
             get { return _useAutoFacing; }

@@ -20,10 +20,10 @@ namespace Crawler
             Authentication.SetProduct(5, CrawlerSettings.Instance.ProductKey);
             Root = new Decorator(r => Authentication.IsAuthenticated(5) && !CrawlerSettings.Instance.IsPaused && Core.Me.IsAlive,
                        new PrioritySelector(
+                           Helpers.Execute(),
                            Tank.Execute(),
                            Healer.Execute(),
                            Damage.Execute(),
-                           Helpers.Execute(),
                            Hooks.Execute()));
             StartAction = Start;
             StopAction = Stop;
