@@ -23,7 +23,7 @@ namespace Crawler.Utilities
             }
 
             var enemies = GameObjectManager.GetObjectsOfType<BattleCharacter>()
-                .Where(x => x.IsValid && x.InLineOfSight() && x.IsAlive && x.IsTargetable && x.CanAttack && x.Distance2D(Core.Me) <= 40f)
+                .Where(x => x.IsValid && x.InLineOfSight() && x.IsAlive && x.IsTargetable && x.CanAttack && x.Distance2D(Core.Me) <= 40f && !x.EnglishName.Contains("Dummy"))
                 .ToList().OrderBy(x => x.Distance2D(Core.Me));
             if (enemies.Any())
             {
