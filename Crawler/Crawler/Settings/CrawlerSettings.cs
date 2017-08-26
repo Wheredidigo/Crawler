@@ -85,17 +85,17 @@ namespace Crawler.Settings
 
         [Setting]
         [DefaultValue(true)]
-        public bool TurnOffAutoFacing
+        public bool UseAutoFacing
         {
-            get { return _turnOffAutoFacing; }
+            get { return _useAutoFacing; }
             set
             {
-                _turnOffAutoFacing = value;
+                _useAutoFacing = value;
                 Save();
             }
         }
 
-        private bool _turnOffAutoFacing;
+        private bool _useAutoFacing;
 
         [Setting]
         [DefaultValue(true)]

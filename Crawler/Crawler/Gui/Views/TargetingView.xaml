@@ -10,7 +10,7 @@
     <Grid>
         <StackPanel>
             <CheckBox Content="Use Auto Targeting" Foreground="Red" IsChecked="{Binding CrawlerSettings.UseAutoTargeting, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
-            <CheckBox Content="Turn Off Auto Facing" Foreground="Red" IsChecked="{Binding CrawlerSettings.TurnOffAutoFacing, UpdateSourceTrigger=PropertyChanged}"/>
+            <CheckBox Content="Use Auto Facing" Foreground="Red" IsChecked="{Binding CrawlerSettings.UseAutoFacing, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
     </Grid>
 
