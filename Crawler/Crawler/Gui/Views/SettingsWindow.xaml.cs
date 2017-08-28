@@ -13,7 +13,10 @@ namespace Crawler.Gui.Views
 
         private void DragWindow(object sender, MouseButtonEventArgs e)
         {
-            DragMove();
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                DragMove();
+            }
         }
     }
 }
