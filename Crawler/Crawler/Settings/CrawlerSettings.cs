@@ -110,6 +110,33 @@ namespace Crawler.Settings
         }
         private bool _useAutoTargeting;
 
+        [Setting]
+        [DefaultValue(true)]
+        public bool UseAutoTargetingInCombat
+        {
+            get { return _useAutoTargetingInCombat; }
+            set
+            {
+                _useAutoTargetingInCombat = value;
+                Save();
+            }
+        }
+        private bool _useAutoTargetingInCombat;
+
+        [Setting]
+        [DefaultValue(40)]
+        public int AutoTargetingMaxRange
+        {
+            get { return _autoTargetingMaxRange; }
+            set
+            {
+                _autoTargetingMaxRange = value;
+                Save();
+            }
+        }
+        private int _autoTargetingMaxRange;
+
+
 
         [Setting]
         [DefaultValue(0.8)]

@@ -10,6 +10,12 @@
     <Grid>
         <StackPanel>
             <CheckBox Content="Use Auto Targeting" Foreground="Red" IsChecked="{Binding CrawlerSettings.UseAutoTargeting, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
+            <CheckBox Content="Use Auto Targeting In Combat" Foreground="Red" IsChecked="{Binding CrawlerSettings.UseAutoTargetingInCombat, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                <TextBlock Text="{Binding ElementName=MaxRangeValue, Path=Value, UpdateSourceTrigger=PropertyChanged}" Foreground="Red" Margin="5,0,10,0"/>
+                <TextBlock Text="Auto Targeting Max Range" Foreground="Red"/>
+            </StackPanel>
+            <Slider Orientation="Horizontal" TickPlacement="BottomRight" TickFrequency="2" IsSnapToTickEnabled="True" Value="{Binding CrawlerSettings.AutoTargetingMaxRange, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Minimum="0" Maximum="60" Name="MaxRangeValue" Margin="0,0,0,10"/>
             <CheckBox Content="Use Auto Facing" Foreground="Red" IsChecked="{Binding CrawlerSettings.UseAutoFacing, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
     </Grid>
