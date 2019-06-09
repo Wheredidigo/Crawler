@@ -57,6 +57,12 @@ namespace Crawler.Logic
                 }
             }
 
+            if (CrawlerSettings.Instance.CommenceDuty && DutyManager.DutyReady)
+            {
+                await Coroutine.Sleep(500);
+                DutyManager.Commence();
+            }
+
             return false;
         }
     }

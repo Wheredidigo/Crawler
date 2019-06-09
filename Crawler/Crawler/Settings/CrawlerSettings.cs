@@ -25,7 +25,7 @@ namespace Crawler.Settings
         [Setting]
         public string ProductKey
         {
-            get { return _productKey; }
+            get => _productKey;
             set
             {
                 Authentication.SetProduct(5, value);
@@ -39,7 +39,7 @@ namespace Crawler.Settings
         [DefaultValue(false)]
         public bool IsPaused
         {
-            get { return _isPaused; }
+            get => _isPaused;
             set
             {
                 _isPaused = value;
@@ -52,7 +52,7 @@ namespace Crawler.Settings
         [DefaultValue(true)]
         public bool UseOverlay
         {
-            get { return _useOverlay; }
+            get => _useOverlay;
             set
             {
                 _useOverlay = value;
@@ -75,7 +75,7 @@ namespace Crawler.Settings
         [DefaultValue(200)]
         public double OverlayWidth
         {
-            get { return _overlayWidth; }
+            get => _overlayWidth;
             set
             {
                 _overlayWidth = value;
@@ -87,7 +87,7 @@ namespace Crawler.Settings
         [DefaultValue(false)]
         public bool UseAutoFacing
         {
-            get { return _useAutoFacing; }
+            get => _useAutoFacing;
             set
             {
                 _useAutoFacing = value;
@@ -101,7 +101,7 @@ namespace Crawler.Settings
         [DefaultValue(true)]
         public bool UseAutoTargeting
         {
-            get { return _useAutoTargeting; }
+            get => _useAutoTargeting;
             set
             {
                 _useAutoTargeting = value;
@@ -114,7 +114,7 @@ namespace Crawler.Settings
         [DefaultValue(true)]
         public bool UseAutoTargetingInCombat
         {
-            get { return _useAutoTargetingInCombat; }
+            get => _useAutoTargetingInCombat;
             set
             {
                 _useAutoTargetingInCombat = value;
@@ -127,7 +127,7 @@ namespace Crawler.Settings
         [DefaultValue(40)]
         public int AutoTargetingMaxRange
         {
-            get { return _autoTargetingMaxRange; }
+            get => _autoTargetingMaxRange;
             set
             {
                 _autoTargetingMaxRange = value;
@@ -142,7 +142,7 @@ namespace Crawler.Settings
         [DefaultValue(0.8)]
         public double OverlayBackgroundOpacity
         {
-            get { return _overlayBackgroundOpacity; }
+            get => _overlayBackgroundOpacity;
             set
             {
                 _overlayBackgroundOpacity = value;
@@ -156,7 +156,7 @@ namespace Crawler.Settings
         [DefaultValue(true)]
         public bool SkipCutscenes
         {
-            get { return _skipCutscenes; }
+            get => _skipCutscenes;
             set
             {
                 _skipCutscenes = value;
@@ -169,7 +169,7 @@ namespace Crawler.Settings
         [DefaultValue(true)]
         public bool SkipDialog
         {
-            get { return _skipDialog; }
+            get => _skipDialog;
             set
             {
                 _skipDialog = value;
@@ -182,7 +182,7 @@ namespace Crawler.Settings
         [DefaultValue(true)]
         public bool AcceptQuests
         {
-            get { return _acceptQuests; }
+            get => _acceptQuests;
             set
             {
                 _acceptQuests = value;
@@ -192,10 +192,23 @@ namespace Crawler.Settings
         private bool _acceptQuests;
 
         [Setting]
+        [DefaultValue(false)]
+        public bool CommenceDuty
+        {
+            get => _commenceDuty;
+            set
+            {
+                _commenceDuty = value;
+                Save();
+            }
+        }
+        private bool _commenceDuty;
+
+        [Setting]
         [DefaultValue(Keys.D0)]
         public Keys TogglePauseKey
         {
-            get { return _togglePauseKey; }
+            get => _togglePauseKey;
             set
             {
                 _togglePauseKey = value;
@@ -210,7 +223,7 @@ namespace Crawler.Settings
         [DefaultValue(ModifierKeys.Alt)]
         public ModifierKeys TogglePauseModifierKey
         {
-            get { return _togglePauseModeifierKey; }
+            get => _togglePauseModeifierKey;
             set
             {
                 _togglePauseModeifierKey = value;

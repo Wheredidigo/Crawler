@@ -12,6 +12,7 @@
             <CheckBox Content="Skip Cutscenes" Foreground="Red" IsChecked="{Binding CrawlerSettings.SkipCutscenes, UpdateSourceTrigger=PropertyChanged}"/>
             <CheckBox Content="Skip Dialog" Foreground="Red" IsChecked="{Binding CrawlerSettings.SkipDialog, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <CheckBox Content="Accept Quests" Foreground="Red" IsChecked="{Binding CrawlerSettings.AcceptQuests, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <CheckBox Content="Commence Duties" Foreground="Red" IsChecked="{Binding CrawlerSettings.CommenceDuty, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
     </Grid>
     
