@@ -26,12 +26,7 @@ namespace Crawler.Utilities
                 .Where(x => x.IsValid && x.InLineOfSight() && x.IsAlive && x.IsTargetable && x.CanAttack && x.Distance2D(Core.Me) <= CrawlerSettings.Instance.AutoTargetingMaxRange && !x.EnglishName.Contains("Dummy"))
                 .OrderBy(x => x.Distance2D(Core.Me))
                 .ToList();
-            if (enemies.Any())
-            {
-                return enemies.First();
-            }
-
-            return null;
+            return enemies.Any() ? enemies.First() : null;
         }
     }
 }
