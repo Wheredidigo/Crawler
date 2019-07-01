@@ -15,7 +15,8 @@ namespace Crawler.Utilities
 
             var aggroedEnemies = GameObjectManager.GetObjectsOfType<BattleCharacter>()
                         .Where(x => x.TaggerType == 2)
-                        .ToList().OrderByDescending(x => x.Distance2D(Core.Me));
+                        .OrderByDescending(x => x.Distance2D(Core.Me))
+                        .ToList();
             if (aggroedEnemies.Any())
             {
                 return aggroedEnemies.First();
@@ -23,7 +24,8 @@ namespace Crawler.Utilities
 
             var enemies = GameObjectManager.GetObjectsOfType<BattleCharacter>()
                 .Where(x => x.IsValid && x.InLineOfSight() && x.IsAlive && x.IsTargetable && x.CanAttack && x.Distance2D(Core.Me) <= CrawlerSettings.Instance.AutoTargetingMaxRange && !x.EnglishName.Contains("Dummy"))
-                .ToList().OrderBy(x => x.Distance2D(Core.Me));
+                .OrderBy(x => x.Distance2D(Core.Me))
+                .ToList();
             if (enemies.Any())
             {
                 return enemies.First();

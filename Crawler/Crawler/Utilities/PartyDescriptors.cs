@@ -43,7 +43,9 @@ namespace Crawler.Utilities
             {ClassJobType.DarkKnight, true},
             {ClassJobType.Astrologian, false},
             {ClassJobType.Samurai, false},
-            {ClassJobType.RedMage, false}
+            {ClassJobType.RedMage, false},
+            {(ClassJobType)37, true},
+            {(ClassJobType)38, false}
         });
 
         private static Dictionary<ClassJobType, bool> _isHealer;
@@ -84,7 +86,9 @@ namespace Crawler.Utilities
             {ClassJobType.DarkKnight, false},
             {ClassJobType.Astrologian, true},
             {ClassJobType.Samurai, false},
-            {ClassJobType.RedMage, false}
+            {ClassJobType.RedMage, false},
+            {(ClassJobType)37, false},
+            {(ClassJobType)38, false}
         });
 
         private static Dictionary<ClassJobType, bool> _isDamage;
@@ -125,7 +129,9 @@ namespace Crawler.Utilities
             {ClassJobType.DarkKnight, false},
             {ClassJobType.Astrologian, false},
             {ClassJobType.Samurai, true},
-            {ClassJobType.RedMage, true}
+            {ClassJobType.RedMage, true},
+            {(ClassJobType)37, false},
+            {(ClassJobType)38, true}
         });
 
         private static Dictionary<ClassJobType, bool> _isChocobo;
@@ -166,7 +172,9 @@ namespace Crawler.Utilities
             {ClassJobType.DarkKnight, false},
             {ClassJobType.Astrologian, false},
             {ClassJobType.Samurai, false},
-            {ClassJobType.RedMage, false}
+            {ClassJobType.RedMage, false},
+            {(ClassJobType)37, false},
+            {(ClassJobType)38, false}
         });
     }
 }
