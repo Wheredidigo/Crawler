@@ -33,7 +33,6 @@ namespace Crawler.Logic
                 {
                     if (await RoutineManager.Current.HealBehavior.ExecuteCoroutine())
                     {
-                        Logger.Log("We just Out of Combat Healed!");
                         return true;
                     }
                 }
@@ -42,7 +41,6 @@ namespace Crawler.Logic
                 {
                     if (await RoutineManager.Current.PreCombatBuffBehavior.ExecuteCoroutine())
                     {
-                        Logger.Log("We just pre-combat buffed!");
                         return true;
                     }
                 }
@@ -64,7 +62,6 @@ namespace Crawler.Logic
                     {
                         if (await RoutineManager.Current.PullBuffBehavior.ExecuteCoroutine())
                         {
-                            Logger.Log("We just buffed our pulled!");
                             return true;
                         }
                     }
@@ -73,7 +70,6 @@ namespace Crawler.Logic
                     {
                         if (await RoutineManager.Current.PullBehavior.ExecuteCoroutine())
                         {
-                            Logger.Log("We just pulled!");
                             return true;
                         }
                     }
@@ -85,7 +81,6 @@ namespace Crawler.Logic
                     {
                         if (await RoutineManager.Current.PullBuffBehavior.ExecuteCoroutine())
                         {
-                            Logger.Log("We just buffed our pulled!");
                             return true;
                         }
                     }
@@ -94,7 +89,6 @@ namespace Crawler.Logic
                     {
                         if (await RoutineManager.Current.PullBehavior.ExecuteCoroutine())
                         {
-                            Logger.Log("We just pulled!");
                             return true;
                         }
                     }
